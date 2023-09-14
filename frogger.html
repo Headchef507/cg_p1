@@ -4,24 +4,15 @@
 <script id="vertex-shader" type="x-shader/x-vertex">
 
 uniform vec2 boxPos;
-//uniform vec2 boxPos2;
 attribute vec4 vPosition;
-
-attribute vec4 iPosition;
 
 void
 main()
 {
-    //if(iPosition != 0.0){
-     //   gl_Position = iPosition;
-    //}
-    //else{
-        vec4 t = vPosition;
-        t.xy += boxPos;
+    vec4 t = vPosition;
+    t.xy += boxPos;
 
-        gl_Position = t;
-
-    //}
+    gl_Position = t;
 }
 </script>
 
