@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+uniform vec2 boxPos;
+//uniform vec2 boxPos2;
+attribute vec4 vPosition;
+
+attribute vec4 iPosition;
+
+void
+main()
+{
+    //if(iPosition != 0.0){
+     //   gl_Position = iPosition;
+    //}
+    //else{
+        vec4 t = vPosition;
+        t.xy += boxPos;
+
+        gl_Position = t;
+
+    //}
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+uniform vec4 rcolor;
+void
+main()
+{
+    gl_FragColor = rcolor;
+
+}
+</script>
+
+<!--Add score to display score-->
+<script type="text/javascript" src="./Common/webgl-utils.js"></script>
+<script type="text/javascript" src="./Common/initShaders.js"></script>
+<script type="text/javascript" src="./Common/MV.js"></script>
+<script type="text/javascript" src="frogger.js"></script>
+
+<body>
+    <div>
+<canvas id="gl-canvas" width="1000" height="600">
+</div>
+<div>
+    <p id="score"></p>
+    <script>
+    document.getElementById("score").innerHTML = "score: " + score;
+</script>
+</div>
+</body>
+</html>
